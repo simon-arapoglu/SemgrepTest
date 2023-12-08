@@ -26,4 +26,6 @@ jobs:
 
       - name: List all changed files
         run: |
-          echo steps.changed-files.outputs.all_changed_files
+          for file in ${{  }}; do
+            echo $steps.changed-files.outputs.all_changed_files
+          done
