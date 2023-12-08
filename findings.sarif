@@ -1,0 +1,110 @@
+{
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/schemas/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "invocations": [
+        {
+          "executionSuccessful": true,
+          "toolExecutionNotifications": []
+        }
+      ],
+      "results": [
+        {
+          "fingerprints": {
+            "matchBasedId/v1": "ba3b0724ead5eafaa928eca451a7048e86b9111bd19ed99508f271b094aeb64db47684c80b1c87c0d68046d6462e90780ac11ee281d95930033b91bca9319e83_0"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/example/Sftp.java",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "endColumn": 37,
+                  "endLine": 18,
+                  "snippet": {
+                    "text": "        session.setPassword(\"aaaaa\");"
+                  },
+                  "startColumn": 9,
+                  "startLine": 18
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "A secret is hard-coded in the application. Secrets stored in source code, such as credentials, identifiers, and other types of sensitive data, can be leaked and used by internal or external malicious actors. Use environment variables to securely provide credentials and other secrets or retrieve them from a secure vault or Hardware Security Module (HSM)."
+          },
+          "properties": {},
+          "ruleId": "java.jsch.jsch-hardcoded-secret.jsch-hardcoded-secret"
+        },
+        {
+          "fingerprints": {
+            "matchBasedId/v1": "380a412f3f8ee5987a3a330b6453ee33bedc525dae9de46459f7cd46aa51a99c07c20333c4119303304512ce5f15ce680293060c015a759faafa917e64c67b33_0"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/example/Sftp.java",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "endColumn": 38,
+                  "endLine": 20,
+                  "snippet": {
+                    "text": "        session.setPassword(password);"
+                  },
+                  "startColumn": 9,
+                  "startLine": 20
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "A secret is hard-coded in the application. Secrets stored in source code, such as credentials, identifiers, and other types of sensitive data, can be leaked and used by internal or external malicious actors. Use environment variables to securely provide credentials and other secrets or retrieve them from a secure vault or Hardware Security Module (HSM)."
+          },
+          "properties": {},
+          "ruleId": "java.jsch.jsch-hardcoded-secret.jsch-hardcoded-secret"
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "semgrep",
+          "rules": [
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "A secret is hard-coded in the application. Secrets stored in source code, such as credentials, identifiers, and other types of sensitive data, can be leaked and used by internal or external malicious actors. Use environment variables to securely provide credentials and other secrets or retrieve them from a secure vault or Hardware Security Module (HSM)."
+              },
+              "help": {
+                "markdown": "A secret is hard-coded in the application. Secrets stored in source code, such as credentials, identifiers, and other types of sensitive data, can be leaked and used by internal or external malicious actors. Use environment variables to securely provide credentials and other secrets or retrieve them from a secure vault or Hardware Security Module (HSM).\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/java.jsch.jsch-hardcoded-secret.jsch-hardcoded-secret)\n - [https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html)\n",
+                "text": "A secret is hard-coded in the application. Secrets stored in source code, such as credentials, identifiers, and other types of sensitive data, can be leaked and used by internal or external malicious actors. Use environment variables to securely provide credentials and other secrets or retrieve them from a secure vault or Hardware Security Module (HSM)."
+              },
+              "helpUri": "https://semgrep.dev/r/java.jsch.jsch-hardcoded-secret.jsch-hardcoded-secret",
+              "id": "java.jsch.jsch-hardcoded-secret.jsch-hardcoded-secret",
+              "name": "java.jsch.jsch-hardcoded-secret.jsch-hardcoded-secret",
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "CWE-798: Use of Hard-coded Credentials",
+                  "HIGH CONFIDENCE",
+                  "OWASP-A07:2021 - Identification and Authentication Failures",
+                  "rule-board-audit",
+                  "security"
+                ]
+              },
+              "shortDescription": {
+                "text": "Semgrep Finding: java.jsch.jsch-hardcoded-secret.jsch-hardcoded-secret"
+              }
+            }
+          ],
+          "semanticVersion": "1.52.0"
+        }
+      }
+    }
+  ],
+  "version": "2.1.0"
+}
