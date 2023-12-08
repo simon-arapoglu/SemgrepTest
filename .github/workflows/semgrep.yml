@@ -30,15 +30,19 @@ jobs:
 
     steps:
       # Fetch project source with GitHub Actions Checkout.
-      - name: Scan changed files
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
+
       # Run the "semgrep ci" command on the command line of the docker image.
+      - name: Scan changed files
       - run: semgrep ci --sarif -o ./findings.sarif
         env:
           # Connect to Semgrep Cloud Platform through your SEMGREP_APP_TOKEN.
           # Generate a token from Semgrep Cloud Platform > Settings
           # and add it to your GitHub secrets.
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+
+      # Upload Findings to Github
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
         with:
